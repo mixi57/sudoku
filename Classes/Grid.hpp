@@ -43,7 +43,7 @@ public:
     
     bool showText();
     void addPurValue(int num);
-    void addUnPurValue(int num);
+    bool addUnPurValue(int num);
     void setPurValues(std::vector<int> values);
     void setUnPurValues(std::vector<int> values);
     void clearValues();

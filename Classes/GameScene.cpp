@@ -531,32 +531,40 @@ bool GameScene::calCellExclude()
 // 根据现有线索推理其他格子的可能性
 bool GameScene::addPurOrUnPurValue()
 {
-    for (int offset = 0; offset < RowOrLineNum ; offset++) {
-        auto existIter = _existIndexAndGridMap.find(offset);
-        if (existIter != _existIndexAndGridMap.end()) {
-            std::vector<Grid*> gridVec = existIter->second;
-            for (auto gridIter = gridVec.begin(); gridIter != gridVec.end(); gridIter++) {
-                Grid* grid = *gridIter;
-                int gridIndex = grid->getIndex();
-                int value = grid->getValue();
-                std::vector<int> indexList = _indexVec[gridIndex];
-//                std::vector<int> areaIndexList = _areaVec[gridIndex];
-                for (auto areaIter = indexList.begin(); areaIter != indexList.end(); areaIter++) {
-                    auto effectiveGridMapIter = _effectiveIndexAndGridMap.find(*areaIter);
-                    if (effectiveGridMapIter != _effectiveIndexAndGridMap.end()) {
-                        std::vector<Grid*> gridMap= effectiveGridMapIter->second;
-                        for (auto effectiveGridIter = gridMap.begin(); effectiveGridIter != gridMap.end(); effectiveGridIter++) {
-                            Grid* paramsGrid = *effectiveGridIter;
-                            paramsGrid->addUnPurValue(value);
+    bool hasCal = true;
+    // 后面优化 不要一改动全身 只动3条线就好
+    while(hasCal){
+        hasCal = false;
+        for (int offset = 0; offset < RowOrLineNum ; offset++) {
+            auto existIter = _existIndexAndGridMap.find(offset);
+            if (existIter != _existIndexAndGridMap.end()) {
+                std::vector<Grid*> gridVec = existIter->second;
+                for (auto gridIter = gridVec.begin(); gridIter != gridVec.end(); gridIter++) {
+                    Grid* grid = *gridIter;
+                    int gridIndex = grid->getIndex();
+                    if(grid->getRowIndex() == 0 && grid->getLineIndex() == 6){
+                        printf("**");
+                    }
+                    int value = grid->getValue();
+                    std::vector<int> indexList = _indexVec[gridIndex];
+    //                std::vector<int> areaIndexList = _areaVec[gridIndex];
+                    for (auto areaIter = indexList.begin(); areaIter != indexList.end(); areaIter++) {
+                        auto effectiveGridMapIter = _effectiveIndexAndGridMap.find(*areaIter);
+                        if (effectiveGridMapIter != _effectiveIndexAndGridMap.end()) {
+                            std::vector<Grid*> gridMap = effectiveGridMapIter->second;
+                            for (auto effectiveGridIter = gridMap.begin(); effectiveGridIter != gridMap.end(); effectiveGridIter++) {
+                                Grid* paramsGrid = *effectiveGridIter;
+                                if(paramsGrid->addUnPurValue(value)){
+                                    hasCal = true;
+                                }
+                            }
                         }
                     }
-                    
                 }
             }
         }
-        
     }
-    return scissorPurValue();
+    return false;//scissorPurValue();
 }
 
 // 裁剪

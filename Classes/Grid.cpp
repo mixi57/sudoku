@@ -85,18 +85,19 @@ void Grid::addPurValue(int num)
     _purValue.push_back(num);
 }
 
-void Grid::addUnPurValue(int num)
+bool Grid::addUnPurValue(int num)
 {
     _isInit = true;
     for (int i = 0; i < _noPurValue.size(); i++) {
         if (_noPurValue[i] == num) {
-            return;
+            return false;
         }
     }
     if (num == 0) {
         printf("why 0");
     }
     _noPurValue.push_back(num);
+    return true;
 }
 
 bool Grid::removePurValue(int value)
