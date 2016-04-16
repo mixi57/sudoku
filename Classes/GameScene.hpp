@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include "cocos2d.h"
 #include "Grid.hpp"
+#include "CalUtils.hpp"
 
 class GameScene : public cocos2d::Layer
 {
@@ -25,18 +26,6 @@ public:
     void createGrids();
     std::vector<int> getGridsData();
     void calculate(Ref *pSender, Widget::TouchEventType eventType);
-    
-    bool addPurOrUnPurValue();
-    
-    bool calCellLimit();
-    bool calCellExclude();
-
-    void checkPurValue();
-    // 裁剪
-    bool scissorPurValue();
-
-    bool removeUnuseValue(int indexType, std::vector<int> useVec, int removeValue);
-
     
     CREATE_FUNC(GameScene);
     
@@ -62,7 +51,8 @@ private:
     std::vector<Grid*> _gridVec;
     std::vector<Grid*> _effectiveGridVec;
     Text* _effectiveGridText;
-    int _solveNum;
+    CalUtils _calUtils;
+
 
 };
 

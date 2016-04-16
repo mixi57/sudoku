@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "469787165.921734"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
             landmarkName = "GameScene::createScene()"
             landmarkType = "5">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "469787165.921734"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "220"
-            endingLineNumber = "220"
+            startingLineNumber = "222"
+            endingLineNumber = "222"
             landmarkName = "GameScene::createGrids()"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "GameScene::createGrids()"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,7 +138,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "GameScene::init()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/GameScene.cpp"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "77"
@@ -154,27 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "GameScene::init()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "78"
-            endingLineNumber = "78"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "469890648.729794"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "469890763.686121"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "56"
-            endingLineNumber = "56"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,12 +234,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "297"
-            endingLineNumber = "297"
-            landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "GameScene::updateEffectiveText()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -250,12 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
+            startingLineNumber = "308"
+            endingLineNumber = "308"
+            landmarkName = "GameScene::twoThreeCalcute()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -266,13 +266,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "300"
-            endingLineNumber = "300"
-            landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
-            landmarkType = "5">
+            startingLineNumber = "306"
+            endingLineNumber = "306">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -312,11 +310,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "477043065.159773"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "GameScene::init()"
             landmarkType = "5">
          </BreakpointContent>
@@ -328,25 +326,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "262"
+            endingLineNumber = "262"
             landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
             landmarkType = "5">
          </BreakpointContent>
@@ -358,44 +342,26 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "432"
-            endingLineNumber = "432"
-            landmarkName = "GameScene::calCellLimit()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
-            landmarkName = "GameScene::createGrids()"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "438"
-            endingLineNumber = "438"
-            landmarkName = "GameScene::calCellLimit()"
+            endingLineNumber = "438">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/GameScene.cpp"
+            timestampString = "482079087.473106"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "254"
+            endingLineNumber = "254"
+            landmarkName = "GameScene::createGrids()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -406,13 +372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "GameScene::createGrids()"
-            landmarkType = "5">
+            startingLineNumber = "261"
+            endingLineNumber = "261">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -469,11 +433,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "264"
-            endingLineNumber = "264"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
             landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
             landmarkType = "5">
          </BreakpointContent>
@@ -485,12 +449,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481945593.997808"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "280"
-            endingLineNumber = "280"
-            landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
+            landmarkName = "GameScene::checkOneAnswer()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -501,13 +465,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "626"
-            endingLineNumber = "626"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "629"
+            endingLineNumber = "629">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -517,13 +479,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "597"
-            endingLineNumber = "597"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "600"
+            endingLineNumber = "600">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -533,13 +493,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "620"
-            endingLineNumber = "620"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "623"
+            endingLineNumber = "623">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -549,13 +507,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "613"
-            endingLineNumber = "613"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "616"
+            endingLineNumber = "616">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -579,13 +535,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "630"
-            endingLineNumber = "630"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "633"
+            endingLineNumber = "633">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -595,13 +549,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "602"
-            endingLineNumber = "602"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "605"
+            endingLineNumber = "605">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -611,13 +563,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "612"
-            endingLineNumber = "612"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "615"
+            endingLineNumber = "615">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -627,13 +577,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "619"
-            endingLineNumber = "619"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "622"
+            endingLineNumber = "622">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -643,13 +591,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "562"
-            endingLineNumber = "562"
-            landmarkName = "GameScene::addPurOrUnPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "565"
+            endingLineNumber = "565">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -659,13 +605,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "595"
-            endingLineNumber = "595"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "598"
+            endingLineNumber = "598">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -675,13 +619,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "623"
-            endingLineNumber = "623"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "626"
+            endingLineNumber = "626">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -707,13 +649,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "634"
-            endingLineNumber = "634"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "637"
+            endingLineNumber = "637">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -723,13 +663,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "653"
-            endingLineNumber = "653"
-            landmarkName = "GameScene::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
-            landmarkType = "5">
+            startingLineNumber = "656"
+            endingLineNumber = "656">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -739,13 +677,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "655"
-            endingLineNumber = "655"
-            landmarkName = "GameScene::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
-            landmarkType = "5">
+            startingLineNumber = "658"
+            endingLineNumber = "658">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -787,29 +723,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "638"
-            endingLineNumber = "638"
-            landmarkName = "GameScene::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "641"
-            endingLineNumber = "641"
-            landmarkName = "GameScene::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
-            landmarkType = "5">
+            endingLineNumber = "641">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -819,13 +737,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "644"
-            endingLineNumber = "644"
-            landmarkName = "GameScene::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
-            landmarkType = "5">
+            endingLineNumber = "644">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -835,13 +751,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "649"
-            endingLineNumber = "649"
-            landmarkName = "GameScene::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
-            landmarkType = "5">
+            startingLineNumber = "647"
+            endingLineNumber = "647">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -851,13 +765,25 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "582"
-            endingLineNumber = "582"
-            landmarkName = "GameScene::scissorPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "652"
+            endingLineNumber = "652">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/GameScene.cpp"
+            timestampString = "482247432.520307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "585"
+            endingLineNumber = "585">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -883,11 +809,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997619.784235"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "636"
-            endingLineNumber = "636">
+            startingLineNumber = "639"
+            endingLineNumber = "639">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -897,13 +823,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481987871.403699"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "537"
-            endingLineNumber = "537"
-            landmarkName = "GameScene::addPurOrUnPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "543"
+            endingLineNumber = "543">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -913,44 +837,40 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481995116.889737"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "539"
-            endingLineNumber = "539"
-            landmarkName = "GameScene::addPurOrUnPurValue()"
-            landmarkType = "5">
+            startingLineNumber = "545"
+            endingLineNumber = "545">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997611.07415"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "546"
-            endingLineNumber = "546"
-            landmarkName = "GameScene::addPurOrUnPurValue()"
-            landmarkType = "5">
+            endingLineNumber = "546">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997917.128841"
+            timestampString = "482079087.473106"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "540"
-            endingLineNumber = "540"
-            landmarkName = "GameScene::addPurOrUnPurValue()"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "GameScene::createGrids()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -961,12 +881,504 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "../Classes/GameScene.cpp"
-            timestampString = "481997979.875091"
+            timestampString = "482247432.520307"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
-            landmarkName = "GameScene::createGrids()"
+            startingLineNumber = "504"
+            endingLineNumber = "504">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/GameScene.cpp"
+            timestampString = "482247432.520307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "365"
+            endingLineNumber = "365">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482246070.183842"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "CalUtils::calCellExclude()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "370"
+            endingLineNumber = "370"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482245148.481464"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "CalUtils::calculate()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482246070.183842"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
+            landmarkName = "CalUtils::calculate()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482328910.709719"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "327"
+            endingLineNumber = "327"
+            landmarkName = "CalUtils::calCellExcludeByIndexList(std::vector&lt;int&gt; indexList)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482246499.068827"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "317"
+            endingLineNumber = "317"
+            landmarkName = "CalUtils::calCellExclude()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/GameScene.cpp"
+            timestampString = "482247432.520307"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/GameScene.cpp"
+            timestampString = "482247423.369001"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "265"
+            endingLineNumber = "265"
+            landmarkName = "GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "350"
+            endingLineNumber = "350"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "354"
+            endingLineNumber = "354"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "362"
+            endingLineNumber = "362"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "363"
+            endingLineNumber = "363"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "356"
+            endingLineNumber = "356"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "340"
+            endingLineNumber = "340"
+            landmarkName = "CalUtils::calCellExcludeByIndexList(std::vector&lt;int&gt; indexList)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
+            landmarkName = "CalUtils::calCellExcludeByIndexList(std::vector&lt;int&gt; indexList)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482329499.284172"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "335"
+            endingLineNumber = "335"
+            landmarkName = "CalUtils::calCellExcludeByIndexList(std::vector&lt;int&gt; indexList)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482332109.354356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "439"
+            endingLineNumber = "439"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482335804.279467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "477"
+            endingLineNumber = "477"
+            landmarkName = "CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map&amp; gridMap, GridPurCheckStruct&amp; purStruct, Grid* grid, std::set&lt;int&gt;&amp; searchPurValueSet)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482335804.279467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "470"
+            endingLineNumber = "470"
+            landmarkName = "CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map&amp; gridMap, GridPurCheckStruct&amp; purStruct, Grid* grid, std::set&lt;int&gt;&amp; searchPurValueSet)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482332109.354356"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "442"
+            endingLineNumber = "442"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482331183.986146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
+            landmarkName = "CalUtils::calCellExclude()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482331200.880148"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482332600.294336"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "411"
+            endingLineNumber = "411"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482335804.279467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
+            landmarkName = "CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map&amp; gridMap, GridPurCheckStruct&amp; purStruct, Grid* grid, std::set&lt;int&gt;&amp; searchPurValueSet)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482335804.279467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
+            landmarkName = "CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map&amp; gridMap, GridPurCheckStruct&amp; purStruct, Grid* grid, std::set&lt;int&gt;&amp; searchPurValueSet)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482334321.116072"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "375"
+            endingLineNumber = "375"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482334348.488722"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "372"
+            endingLineNumber = "372"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482334431.345912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "374"
+            endingLineNumber = "374"
+            landmarkName = "CalUtils::calCellTwoOrThree()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../Classes/CalUtils.cpp"
+            timestampString = "482336202.827996"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
+            landmarkName = "CalUtils::removeUnuseValue(int indexType, std::vector&lt;int&gt; useVec, int removeValue)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

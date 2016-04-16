@@ -8,6 +8,7 @@
 
 #include "GameScene.hpp"
 #include "MXTime.hpp"
+
 #define RowOrLineNum 9
 USING_NS_CC;
 Scene* GameScene::createScene()
@@ -98,7 +99,6 @@ bool GameScene::init()
 
 GameScene::GameScene()
 //:_unsolvedNum(9 * 9)
-:_solveNum(0)
 {
     _indexVec.clear();
     _areaVec.clear();
@@ -140,8 +140,8 @@ std::vector<int> GameScene::getGridsData()
         0, 0, 0,  0, 8, 5,  2, 0, 7,
         0, 2, 0,  0, 0, 0,  0, 8, 3,
         0, 8, 0,  2, 9, 3,  4, 5, 1,
-    };*/
-    {
+    }; 一次解完 简单版*/
+    /*{
         0, 4, 0,  0, 0, 6,  0, 7, 0,
         0, 0, 0,  0, 0, 3,  6, 1, 8,
         6, 1, 3,  7, 8, 9,  4, 0, 2,
@@ -153,9 +153,9 @@ std::vector<int> GameScene::getGridsData()
         0, 3, 0,  0, 0, 1,  0, 0, 0,
         9, 8, 0,  0, 0, 7,  1, 0, 0,
         4, 6, 1,  0, 3, 2,  0, 9, 7,
-    };
-    // 已解 前两种解法无法解
-    /*{
+    }; 一次解完 简单版*/
+    /*// 已解 前两种解法无法解
+    {
         5, 0, 7,  9, 0, 0,  3, 0, 2,
         0, 0, 2,  0, 0, 6,  5, 7, 0,
         1, 0, 0,  0, 0, 5,  0, 0, 9,
@@ -167,8 +167,8 @@ std::vector<int> GameScene::getGridsData()
         8, 0, 5,  0, 0, 3,  0, 0, 4,
         0, 3, 1,  5, 0, 0,  2, 0, 0,
         7, 2, 4,  0, 0, 9,  6, 3, 5,
-    };*/
-    /*
+    };// 简单解法无法解开 新加入 2 3 相同排除法 我好厉害的解完了 */
+    
     {
         0, 5, 3,  0, 6, 0,  0, 4, 0,
         0, 0, 0,  8, 0, 0,  0, 5, 0,
@@ -181,10 +181,11 @@ std::vector<int> GameScene::getGridsData()
         0, 0, 0,  0, 0, 0,  0, 0, 6,
         1, 0, 6,  4, 0, 0,  0, 8, 0,
         0, 0, 0,  0, 5, 0,  9, 0, 0,
-    };
-    */
+    }; // 使用 简单解法 2 3排除 都不能解决
+    
 
-    /* 暂时没解开{
+    /* 暂时没解开
+    {
         0, 5, 0,  0, 0, 0,  0, 3, 0,
         0, 0, 0,  0, 4, 0,  0, 0, 0,
         4, 2, 0,  5, 8, 0,  0, 0, 0,
@@ -256,71 +257,15 @@ void GameScene::createGrids()
             }
         }
     }
+    _calUtils = CalUtils::CalUtils(_areaVec, _indexVec, _effectiveIndexAndGridMap, _existIndexAndGridMap, _gridVec, _effectiveGridVec);
 }
 
 void GameScene::calculate(Ref *pSender, Widget::TouchEventType eventType)
 {
-    // first
-    do{
-        if (!calCellLimit()) {
-            break;
-        }
-    } while(1);
-    
-    // second
-    addPurOrUnPurValue();
-    
-    do{
-        if (!calCellExclude()) {
-            break;
-        }
-    } while(1);
-    
-    // check
-//    checkPurValue();
-    
-    /*
-    unsigned long curTime = MXTime::millisecondNow();
-    log("curT %lu", curTime);
-    bool needTurn = false;
     if (eventType == Widget::TouchEventType::ENDED) {
-        for (std::vector<Grid*>::iterator iter = _effectiveGridVec.begin(); iter != _effectiveGridVec.end(); iter++) {
-            Grid* grid = *iter;
-            grid->clearValues();
-            int gridIndex = grid->getIndex();
-            
-            // 参考线
-            std::vector<int> ids = _indexVec[gridIndex];
-            for (int id = 0; id < ids.size(); id++) {
-                std::vector<int> typeVec = _areaVec[ids[id]];
-                for (int typeIndex = 0; typeIndex < typeVec.size(); typeIndex++) {
-                    int type = typeVec[typeIndex];
-                    if (type != gridIndex) {
-                        Grid* typeGrid = _gridVec[type];
-                        int value = typeGrid->getValue();
-                        if (value > 0) {
-                            grid->addUnPurValue(value);
-                        }
-                    }
-                }
-            }
-            if(grid->showText()){
-                if (!needTurn) {
-                    needTurn = true;
-                }
-                iter = _effectiveGridVec.erase(iter);
-                iter--;
-            }
-        }
+        _calUtils.calculate();
+        updateEffectiveText();
     }
-//    if (needTurn) {
-//        calculate(pSender, eventType);
-//    }
-    log("use time %lu", MXTime::millisecondNow() - curTime);
-    
-     */
-    
-    updateEffectiveText();
 }
 
 void GameScene::checkOneAnswer()
@@ -357,7 +302,7 @@ void GameScene::checkOneAnswer()
 
 void GameScene::updateEffectiveText()
 {
-    _effectiveGridText->setString(StringUtils::format("%lu", _effectiveGridVec.size() - _solveNum));
+    _effectiveGridText->setString(StringUtils::format("%lu", _effectiveGridVec.size() - _calUtils.getSolveNum()));
 }
 
 void GameScene::twoThreeCalcute()
@@ -414,328 +359,3 @@ void GameScene::pairsAllResult()
     }
 }
 
-// 单元限制 一单元只有一个空格之类的
-bool GameScene::calCellLimit()
-{
-    bool hasCal = false;
-    for (auto iter = _effectiveIndexAndGridMap.begin(); iter != _effectiveIndexAndGridMap.end(); iter++) {
-        std::vector<Grid*> vec = iter->second;
-        if (vec.size() == 1) {
-            Grid* grid = vec.at(0);
-            int index = iter->first;
-            std::vector<int> indexVec = _areaVec[index];
-            for (auto indexIter = indexVec.begin(); indexIter != indexVec.end(); indexIter++) {
-                if (*indexIter != index) {
-                    Grid* typeGrid = _gridVec[*indexIter];
-                    int value = typeGrid->getValue();
-                    if (value != 0)
-                    {
-                        grid->addUnPurValue(value);
-                    }
-                }
-            }
-            if(grid->showText()){
-                _solveNum++;
-                if (!hasCal) {
-                    hasCal = true;
-                }
-//                _effectiveGridVec.erase();
-                
-                std::vector<int> indexList = _indexVec[index];
-                for (auto listIndexIter = indexList.begin(); listIndexIter != indexList.end(); listIndexIter++) {
-                    std::map<int, std::vector<Grid*>>::iterator gridListIter = _effectiveIndexAndGridMap.find(*listIndexIter);
-                    if (gridListIter != _effectiveIndexAndGridMap.end()) {
-                        std::vector<Grid*> gridList = gridListIter->second;
-                        for (auto areaGridIter = gridList.begin(); areaGridIter != gridList.end(); areaGridIter++) {
-                            if (*areaGridIter == grid) {
-                                gridList.erase(areaGridIter);
-                                auto existIter =  _existIndexAndGridMap.find(*listIndexIter);
-                                if (existIter == _existIndexAndGridMap.end()) {
-                                    _existIndexAndGridMap[*listIndexIter] = {};
-                                    existIter = _existIndexAndGridMap.find(*listIndexIter);
-                                }
-                                existIter->second.push_back(grid);
-                                break;
-                            }
-                        }
-                    }
-                }
-                iter = _effectiveIndexAndGridMap.erase(iter);
-                iter--;
-            }
-            
-        }
-    }
-    return hasCal;
-}
-
-// 检查是否只有一个可能性
-bool GameScene::calCellExclude()
-{
-    bool hasCal = false;
-    
-    for (int offset = 0; offset < RowOrLineNum; offset++) {
-        std::vector<Grid*> gridList = _effectiveIndexAndGridMap[offset];
-        for (auto gridIter = gridList.begin(); gridIter != gridList.end(); gridIter++) {
-            Grid* grid = *gridIter;
-            if(grid->showText()){
-                hasCal = true;
-                _solveNum++;
-                int index = grid->getIndex();
-                std::vector<int> indexList = _indexVec[index];
-                for (auto listIndexIter = indexList.begin(); listIndexIter != indexList.end(); listIndexIter++) {
-                    std::map<int, std::vector<Grid*>>::iterator gridListIter = _effectiveIndexAndGridMap.find(*listIndexIter);
-                    if (gridListIter != _effectiveIndexAndGridMap.end()) {
-                        std::vector<Grid*> gridList = gridListIter->second;
-                        for (auto areaGridIter = gridList.begin(); areaGridIter != gridList.end(); areaGridIter++) {
-                            if (*areaGridIter == grid) {
-                                gridList.erase(areaGridIter);
-                                auto existIter =  _existIndexAndGridMap.find(*listIndexIter);
-                                if (existIter == _existIndexAndGridMap.end()) {
-                                    _existIndexAndGridMap[*listIndexIter] = {};
-                                    existIter = _existIndexAndGridMap.find(*listIndexIter);
-                                }
-                                existIter->second.push_back(grid);
-                                break;
-                            }
-                        }
-                    }
-                }
-                
-            };
-        }
-    }
-//    for (auto cellIter = _effectiveIndexAndGridMap.begin(); cellIter != _effectiveIndexAndGridMap.end(); cellIter++) {
-//        std::vector<Grid*>gridList = cellIter->second;
-//        for (auto gridIter = gridList.begin(); gridIter != gridList.end(); gridIter++) {
-//            Grid* grid = *gridIter;
-//            int gridIndex = grid->getIndex();
-//            std::vector<int>indexList = _indexVec[gridIndex];
-//            for (auto areaIndexIter = indexList.begin(); areaIndexIter != indexList.end(); areaIndexIter++) {
-//                std::vector<int>areaList = _areaVec[*areaIndexIter];
-//                for (auto areaIter = areaList.begin(); areaIter != areaList.end(); areaIter++) {
-//                    Grid* paramsGrid = _gridVec[*areaIter];
-//                    int value = paramsGrid->getValue();
-//                    if (value > 0) {
-//                        
-//                    }
-//                }
-//            }
-//            
-//            
-//        }
-//    }
-    return hasCal;
-}
-
-// 根据现有线索推理其他格子的可能性
-bool GameScene::addPurOrUnPurValue()
-{
-    bool hasCal = true;
-    // 后面优化 不要一改动全身 只动3条线就好
-    while(hasCal){
-        hasCal = false;
-        for (int offset = 0; offset < RowOrLineNum ; offset++) {
-            auto existIter = _existIndexAndGridMap.find(offset);
-            if (existIter != _existIndexAndGridMap.end()) {
-                std::vector<Grid*> gridVec = existIter->second;
-                for (auto gridIter = gridVec.begin(); gridIter != gridVec.end(); gridIter++) {
-                    Grid* grid = *gridIter;
-                    int gridIndex = grid->getIndex();
-                    if(grid->getRowIndex() == 0 && grid->getLineIndex() == 6){
-                        printf("**");
-                    }
-                    int value = grid->getValue();
-                    std::vector<int> indexList = _indexVec[gridIndex];
-    //                std::vector<int> areaIndexList = _areaVec[gridIndex];
-                    for (auto areaIter = indexList.begin(); areaIter != indexList.end(); areaIter++) {
-                        auto effectiveGridMapIter = _effectiveIndexAndGridMap.find(*areaIter);
-                        if (effectiveGridMapIter != _effectiveIndexAndGridMap.end()) {
-                            std::vector<Grid*> gridMap = effectiveGridMapIter->second;
-                            for (auto effectiveGridIter = gridMap.begin(); effectiveGridIter != gridMap.end(); effectiveGridIter++) {
-                                Grid* paramsGrid = *effectiveGridIter;
-                                if(paramsGrid->addUnPurValue(value)){
-                                    hasCal = true;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return false;//scissorPurValue();
-}
-
-// 裁剪
-// 检查小方格之中是否存在某个数字只存在同行或同列的格子之中，是的话排杀
-bool GameScene::scissorPurValue()
-{
-    bool hasCal = false;
-    
-    std::map<int, std::vector<Grid*>> purValueMap;
-    for (auto areaIndex = RowOrLineNum * 2; areaIndex < RowOrLineNum * 3; areaIndex++) {
-        std::vector<int> typeVec = _areaVec[areaIndex];
-        purValueMap.clear();
-        // 每条线中的处理
-        for (int typeIndex = 0; typeIndex < typeVec.size(); typeIndex++) {
-            int type = typeVec[typeIndex];
-            Grid* typeGrid = _gridVec[type];
-            int value = typeGrid->getValue();
-            
-            if (value == 0) {
-                std::vector<int> purValue = typeGrid->getPurValue();
-                for (std::vector<int>::iterator iter = purValue.begin(); iter != purValue.end(); iter++) {
-                    std::map<int, std::vector<Grid*>>::iterator valueIter = purValueMap.find(*iter);
-                    if (valueIter == purValueMap.end()) {
-                        std::vector<Grid*> vec;
-                        purValueMap.insert(std::pair<int, std::vector<Grid*>>(*iter, vec));
-                        valueIter = purValueMap.find(*iter);
-                    }
-                    valueIter->second.push_back(typeGrid);
-                }
-            }
-        }
-        // 检查
-         for (std::map<int, std::vector<Grid*>>::iterator iter = purValueMap.begin(); iter != purValueMap.end(); iter++) {
-            if (iter->second.size() > 1) {
-                // 如果同个数字都在同行或者同列 可以清掉其他的可能了
-                Grid* firstGrid = iter->second[0];
-                int rowIndex = firstGrid->getRowIndex();
-                int lineIndex = firstGrid->getLineIndex();
-                bool testRow = true;
-                bool testLine = true;
-                std::vector<int> useVec = {firstGrid->getIndex()};
-                for (int i = 1; i < iter->second.size() && (testRow or testLine); ++i)
-                {
-                    Grid* grid = iter->second[i];
-                    if (testRow) {
-                        testRow = rowIndex == grid->getRowIndex();
-                    }
-                    if (testLine) {
-                        testLine = lineIndex == grid->getLineIndex();
-                    }
-                    if (testRow or testLine)
-                    {
-                        useVec.push_back(grid->getIndex());
-                    }
-                }
-                if (testRow)
-                {
-                    hasCal = removeUnuseValue(_indexVec[firstGrid->getIndex()][1], useVec, iter->first) or hasCal;
-                } else if (testLine)
-                {
-                    hasCal = removeUnuseValue(_indexVec[firstGrid->getIndex()][0], useVec, iter->first) or hasCal;
-                }
-            }
-        }   
-    }
-
-    return hasCal;
-}
-
-bool GameScene::removeUnuseValue(int indexType, std::vector<int> useVec, int removeValue)
-{
-    bool hasRemove = false;
-    std::vector<int> gridIndexVec = _areaVec[indexType];
-    for (int i = 0; i < gridIndexVec.size(); ++i)
-    {
-        int index = gridIndexVec[i];
-        bool needBreak = false;
-        for (int j = 0; j < useVec.size(); ++j)
-        {
-            if (index == useVec[j])
-            {
-                needBreak = true;
-                break;
-            }
-        }
-        if (needBreak) {
-            continue;
-        }
-        Grid* grid = _gridVec[index];
-        if (grid->getValue() == 0) {
-            hasRemove = grid->removePurValue(removeValue) or hasRemove;
-        }
-    }
-    return hasRemove;
-}
-
-// 检查一圈可能的数字
-void GameScene::checkPurValue()
-{
-    // 检查每条分支 最好增加脏属性 就不用全部再检查一次了
-    /*for (auto iter = _areaVec.begin(); iter != _areaVec.end(); iter++) {
-        purValueMap.clear();
-        std::vector<int> areaList = *iter;
-        for (auto indexIter = areaList.begin(); indexIter != areaList.end(); indexIter++) {
-            auto it = _existIndexAndGridMap.find(*indexIter);
-            if(it != _existIndexAndGridMap.end())
-            {
-//                Grid* grid = it->second;
-            }
-        }
-    }*/
-    std::map<int, std::vector<Grid*>> purValueMap;
-    // 参考线
-    for (int id = 0; id < _areaVec.size(); id++) {
-        std::vector<int> typeVec = _areaVec[id];
-        purValueMap.clear();
-        // 每条线中的处理
-        for (int typeIndex = 0; typeIndex < typeVec.size(); typeIndex++) {
-            int type = typeVec[typeIndex];
-            Grid* typeGrid = _gridVec[type];
-            int value = typeGrid->getValue();
-            
-            if (value == 0) {
-                std::vector<int> purValue = typeGrid->getPurValue();
-                for (std::vector<int>::iterator iter = purValue.begin(); iter != purValue.end(); iter++) {
-                    std::map<int, std::vector<Grid*>>::iterator valueIter = purValueMap.find(*iter);
-                    if (valueIter == purValueMap.end()) {
-                        std::vector<Grid*> vec;
-                        purValueMap.insert(std::pair<int, std::vector<Grid*>>(*iter, vec));
-                        valueIter = purValueMap.find(*iter);
-                    }
-                    valueIter->second.push_back(typeGrid);
-                }
-            }
-        }
-        // 判断1⃣️ 如果只有一个可能性 那就是它了
-        bool dirty = false;
-        for (std::map<int, std::vector<Grid*>>::iterator iter = purValueMap.begin(); iter != purValueMap.end(); iter++) {
-            if (iter->second.size() == 1) {
-                Grid* grid = iter->second[0];
-                grid->setValue(iter->first);
-                
-                // 复制黏贴是不好的事情
-                int index = grid->getIndex();
-                std::vector<int> indexList = _indexVec[index];
-                for (auto listIndexIter = indexList.begin(); listIndexIter != indexList.end(); listIndexIter++) {
-                    std::map<int, std::vector<Grid*>>::iterator gridListIter = _effectiveIndexAndGridMap.find(*listIndexIter);
-                    if (gridListIter != _effectiveIndexAndGridMap.end()) {
-                        std::vector<Grid*> gridList = gridListIter->second;
-                        for (auto areaGridIter = gridList.begin(); areaGridIter != gridList.end(); areaGridIter++) {
-                            if (*areaGridIter == grid) {
-                                gridList.erase(areaGridIter);
-                                auto existIter =  _existIndexAndGridMap.find(*listIndexIter);
-                                if (existIter == _existIndexAndGridMap.end()) {
-                                    _existIndexAndGridMap[*listIndexIter] = {};
-                                    existIter = _existIndexAndGridMap.find(*listIndexIter);
-                                }
-                                existIter->second.push_back(grid);
-                                break;
-                            }
-                        }
-                    }
-                }
-                
-                dirty = true;
-            }
-        }
-        if (dirty) {
-            //有优化空间
-            addPurOrUnPurValue();
-        }
-    }
-
-}

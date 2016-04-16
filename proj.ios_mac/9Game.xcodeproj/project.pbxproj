@@ -65,6 +65,9 @@
 		551F46A31C00E0D60057DACA /* common_btn_xiaolv.png in Resources */ = {isa = PBXBuildFile; fileRef = 551F46A01C00E0D60057DACA /* common_btn_xiaolv.png */; };
 		5529DEF11C4FDAC30056EBC9 /* MXTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5529DEEF1C4FDAC30056EBC9 /* MXTime.cpp */; };
 		5529DEF21C4FDAC30056EBC9 /* MXTime.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5529DEEF1C4FDAC30056EBC9 /* MXTime.cpp */; };
+		559AF9A81CBBC92F00003DDE /* CalUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 559AF9A61CBBC92F00003DDE /* CalUtils.cpp */; };
+		559AF9A91CBBC92F00003DDE /* CalUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 559AF9A61CBBC92F00003DDE /* CalUtils.cpp */; };
+		559AF9AA1CBBC92F00003DDE /* CalUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 559AF9A61CBBC92F00003DDE /* CalUtils.cpp */; };
 		55AC89501BF693A500BA0364 /* GameScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55AC894E1BF693A500BA0364 /* GameScene.cpp */; };
 		55AC89531BF6A2C900BA0364 /* Grid.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 55AC89511BF6A2C900BA0364 /* Grid.cpp */; };
 		55B956811C57CF6C0005DE75 /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77617EB970100C73F5D /* Icon-120.png */; };
@@ -219,6 +222,8 @@
 		551F46A01C00E0D60057DACA /* common_btn_xiaolv.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = common_btn_xiaolv.png; sourceTree = "<group>"; };
 		5529DEEF1C4FDAC30056EBC9 /* MXTime.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MXTime.cpp; sourceTree = "<group>"; };
 		5529DEF01C4FDAC30056EBC9 /* MXTime.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MXTime.hpp; sourceTree = "<group>"; };
+		559AF9A61CBBC92F00003DDE /* CalUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CalUtils.cpp; sourceTree = "<group>"; };
+		559AF9A71CBBC92F00003DDE /* CalUtils.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CalUtils.hpp; sourceTree = "<group>"; };
 		55AC894E1BF693A500BA0364 /* GameScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameScene.cpp; sourceTree = "<group>"; };
 		55AC894F1BF693A500BA0364 /* GameScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameScene.hpp; sourceTree = "<group>"; };
 		55AC89511BF6A2C900BA0364 /* Grid.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Grid.cpp; sourceTree = "<group>"; };
@@ -398,6 +403,8 @@
 				55AC89521BF6A2C900BA0364 /* Grid.hpp */,
 				5529DEEF1C4FDAC30056EBC9 /* MXTime.cpp */,
 				5529DEF01C4FDAC30056EBC9 /* MXTime.hpp */,
+				559AF9A61CBBC92F00003DDE /* CalUtils.cpp */,
+				559AF9A71CBBC92F00003DDE /* CalUtils.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -659,6 +666,7 @@
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				55AC89501BF693A500BA0364 /* GameScene.cpp in Sources */,
 				55AC89531BF6A2C900BA0364 /* Grid.cpp in Sources */,
+				559AF9A81CBBC92F00003DDE /* CalUtils.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				5529DEF11C4FDAC30056EBC9 /* MXTime.cpp in Sources */,
 			);
@@ -671,6 +679,7 @@
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				559AF9A91CBBC92F00003DDE /* CalUtils.cpp in Sources */,
 				5529DEF21C4FDAC30056EBC9 /* MXTime.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,6 +694,7 @@
 				55B956A01C57CF6C0005DE75 /* RootViewController.mm in Sources */,
 				55B956A11C57CF6C0005DE75 /* GameScene.cpp in Sources */,
 				55B956A21C57CF6C0005DE75 /* Grid.cpp in Sources */,
+				559AF9AA1CBBC92F00003DDE /* CalUtils.cpp in Sources */,
 				55B956A31C57CF6C0005DE75 /* main.m in Sources */,
 				55B956A41C57CF6C0005DE75 /* MXTime.cpp in Sources */,
 			);
