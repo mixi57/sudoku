@@ -204,7 +204,7 @@ Grid_Map CalUtils::getPurValueMap(int areaIndex)
     }
     return purValueMap;
 }
-bool CalUtils::scissorPurValueByIndex(int areaIndex)
+bool CalUtils::scissorPurValueByIndex(int areaIndex, std::map<int, std::vector<Grid_Vec>>& gridMap, bool needSave)
 {
     bool hasCal = false;
     std::map<int, std::vector<Grid*>> purValueMap = getPurValueMap(areaIndex);
@@ -212,32 +212,43 @@ bool CalUtils::scissorPurValueByIndex(int areaIndex)
      for (std::map<int, std::vector<Grid*>>::iterator iter = purValueMap.begin(); iter != purValueMap.end(); iter++) {
         if (iter->second.size() > 1) {
             // 如果同个数字都在同行或者同列 可以清掉其他的可能了
-            Grid* firstGrid = iter->second[0];
-            int rowIndex = firstGrid->getRowIndex();
-            int lineIndex = firstGrid->getLineIndex();
-            bool testRow = true;
-            bool testLine = true;
-            std::vector<int> useVec = {firstGrid->getIndex()};
-            for (int i = 1; i < iter->second.size() && (testRow or testLine); ++i)
+            if (needSave)
             {
-                Grid* grid = iter->second[i];
-                if (testRow) {
-                    testRow = rowIndex == grid->getRowIndex();
-                }
-                if (testLine) {
-                    testLine = lineIndex == grid->getLineIndex();
-                }
-                if (testRow or testLine)
+                auto gridMapIter = gridMap.find(iter->first);
+                if (gridMapIter == gridMap.end())
                 {
-                    useVec.push_back(grid->getIndex());
+                    gridMap[iter->first] = {};
+                    gridMapIter = gridMap.find(iter->first);
                 }
-            }
-            if (testRow)
-            {
-                hasCal = removeUnuseValue(_indexVec[firstGrid->getIndex()][1], useVec, iter->first) or hasCal;
-            } else if (testLine)
-            {
-                hasCal = removeUnuseValue(_indexVec[firstGrid->getIndex()][0], useVec, iter->first) or hasCal;
+                gridMapIter->second.push_back(iter->second);
+            } else {
+                Grid* firstGrid = iter->second[0];
+                int rowIndex = firstGrid->getRowIndex();
+                int lineIndex = firstGrid->getLineIndex();
+                bool testRow = true;
+                bool testLine = true;
+                std::vector<int> useVec = {firstGrid->getIndex()};
+                for (int i = 1; i < iter->second.size() && (testRow or testLine); ++i)
+                {
+                    Grid* grid = iter->second[i];
+                    if (testRow) {
+                        testRow = rowIndex == grid->getRowIndex();
+                    }
+                    if (testLine) {
+                        testLine = lineIndex == grid->getLineIndex();
+                    }
+                    if (testRow or testLine)
+                    {
+                        useVec.push_back(grid->getIndex());
+                    }
+                }
+                if (testRow)
+                {
+                    hasCal = removeUnuseValue(_indexVec[firstGrid->getIndex()][1], useVec, iter->first) or hasCal;
+                } else if (testLine)
+                {
+                    hasCal = removeUnuseValue(_indexVec[firstGrid->getIndex()][0], useVec, iter->first) or hasCal;
+                }
             }
         }
     }   
@@ -246,16 +257,111 @@ bool CalUtils::scissorPurValueByIndex(int areaIndex)
 
 // 裁剪
 // 检查小方格之中是否存在某个数字只存在同行或同列的格子之中，是的话排杀
+// 其实应该扩散 不应该只限定在小方格中 
 bool CalUtils::scissorPurValue()
 {
     bool hasCal = false;
-    
+    std::map<int, std::vector<Grid_Vec>> gridMap;
+    // 小方格
     for (auto areaIndex = RowOrLineNum * 2; areaIndex < RowOrLineNum * 3; areaIndex++) {
-        if (scissorPurValueByIndex(areaIndex)) {
+        if (scissorPurValueByIndex(areaIndex, gridMap)) {
             hasCal = true;
         }
     }
 
+    for (auto areaIndex = 0; areaIndex < RowOrLineNum; areaIndex++) {
+        if (scissorPurValueByIndex(areaIndex, gridMap, true)) {
+            hasCal = true;
+        }
+    }
+
+    for (auto iter = gridMap.begin(); iter != gridMap.end(); ++iter)
+    {
+        //  查找数目为2？  3的呢 同数目吧
+        long gridSameNumSize = iter->second.size();
+        if (gridSameNumSize > 1)
+        {
+            if (iter->first == 5) {
+                printf("");
+            }
+            std::vector<Grid_Vec> gridVecVec = iter->second;
+            std::map<long, std::map<long, std::vector<Grid_Vec>>> existNumMap;
+            
+            bool isTheSamePur = false;
+            std::vector<int> useVec;
+            std::vector<int> useRowIndexVec;
+            int samePurNum = 0;
+            bool hasSame = false;
+            
+            for (auto gridVVIter = gridVecVec.begin(); gridVVIter < gridVecVec.end(); ++gridVVIter)
+            {
+                long size = gridVVIter->size();
+                if (size <= gridSameNumSize)
+                {
+                    int indexSum = 0;
+                    for(auto gridIter = gridVVIter->begin(); gridIter != gridVVIter->end(); ++gridIter)
+                    {
+                        indexSum += (*gridIter)->getRowIndex();
+                    }
+                    auto sameIter = existNumMap.find(size);
+
+                    if (sameIter != existNumMap.end())
+                    {
+                        std::map<long, std::vector<Grid_Vec>> vecMap = sameIter->second;
+                        if (vecMap.find(indexSum) != vecMap.end()) {
+                            for (auto vecMapIter = vecMap[indexSum].begin(); vecMapIter != vecMap[indexSum].end(); ++vecMapIter) {
+                                for (auto vecGridVecIter = vecMapIter->begin(), gridIter = gridVVIter->begin(); vecGridVecIter != vecMapIter->end(); ++vecGridVecIter, ++gridIter){
+                                    Grid* oldGrid = *vecGridVecIter;
+                                    Grid* newGrid = *gridIter;
+                                    if (oldGrid->getRowIndex() == newGrid->getRowIndex()) {
+                                        isTheSamePur = true;
+                                        if (!hasSame) {
+                                            useVec.push_back(oldGrid->getIndex());
+                                            useRowIndexVec.push_back(oldGrid->getRowIndex());
+                                        }
+                                    } else {
+                                        isTheSamePur = false;
+                                        break;
+                                    }
+                                }
+                                if (isTheSamePur) {
+                                    if (!hasSame) {
+                                        hasSame = true;
+                                    }
+                                    samePurNum++;
+//                                    useVecVec.push_back(useVec);
+//                                    usrVecMap[lineIndex] = useVec;
+                                }
+                            }
+                        }
+                    }
+                    if (isTheSamePur) {
+                        if (samePurNum == size) {
+                            for (auto useGridIndexIter = useVec.begin(); useGridIndexIter != useVec.end(); ++useGridIndexIter) {
+                                int useGridIndex = *useGridIndexIter;
+                                removeUnuseValue(_indexVec[useGridIndex][2], useRowIndexVec, iter->first);
+                            }
+                        }
+                    }
+
+                    if (!isTheSamePur)
+                    {
+//                        std::map<long, Grid_Vec> gridVecMap = {indexSum, *gridVVIter};
+                        if (sameIter == existNumMap.end()) {
+                            existNumMap[size] = {};
+                            sameIter = existNumMap.find(size);
+                        }
+                        std::map<long, std::vector<Grid_Vec>> vecMap = sameIter->second;
+                        if (vecMap.find(indexSum) == vecMap.end()) {
+                            existNumMap[size][indexSum] = {};
+                        }
+                        
+                        existNumMap[size][indexSum].push_back(*gridVVIter);
+                    }
+                }
+            }
+        }
+    }
     return hasCal;
 }
 
@@ -303,16 +409,27 @@ bool CalUtils::removeUnuseValue(int indexType, std::vector<int> useVec, int remo
 // 单元排除法 结合 addPurOrUnPurValue
 bool CalUtils::calCellExclude()
 {
-
     bool hasCal = false;
-    
+
+    for (auto areaIndex = 0; areaIndex < _areaVec.size(); ++areaIndex) {
+        Grid_Map gridMap = getPurValueMap(areaIndex);
+        for (auto iter = gridMap.begin(); iter != gridMap.end(); ++iter)
+        {
+            Grid_Vec gridVec = iter->second;
+            if (gridVec.size() == 1)
+            {
+                gridVec[0]->setValue(iter->first);
+                addSureValue(gridVec[0]);
+                hasCal = true;
+            }            
+        }
+    }    
     for (int offset = 0; offset < RowOrLineNum; offset++) {
         std::vector<Grid*> gridList = _effectiveIndexAndGridMap[offset];
         for (auto gridIter = gridList.begin(); gridIter != gridList.end(); gridIter++) {
             Grid* grid = *gridIter;
             if(grid->showText()){
                 hasCal = true;
-                // _solveNum++;
                 addSureValue(grid);
             };
         }
@@ -324,9 +441,9 @@ bool CalUtils::calCellExclude()
 bool CalUtils::calCellExcludeByIndexList(std::vector<int> indexList)
 {
     bool hasCal = false;
-    
     for (int offset = 0; offset < indexList.size(); offset++) {
-        std::vector<Grid*> gridList = _effectiveIndexAndGridMap[indexList[offset]];
+        int areaIndex = indexList[offset];
+        std::vector<Grid*> gridList = _effectiveIndexAndGridMap[areaIndex];
         for (auto gridIter = gridList.begin(); gridIter != gridList.end(); gridIter++) {
             Grid* grid = *gridIter;
             if(grid->showText()){

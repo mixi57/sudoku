@@ -44,7 +44,7 @@ public:
     bool addPurOrUnPurValueByNewGrid(Grid* grid);
     void addSureValue(Grid* grid);
     bool scissorPurValue();
-    bool scissorPurValueByIndex(int index);
+    bool scissorPurValueByIndex(int areaIndex, std::map<int, std::vector<Grid_Vec>>& gridMap, bool needSave = false);
     bool removeUnuseValue(int indexType, std::vector<int> useVec, int removeValue);
     bool calCellExclude();
     bool calCellExcludeByIndexList(std::vector<int> indexList);
