@@ -88,6 +88,12 @@ void Grid::addPurValue(int num)
 bool Grid::addUnPurValue(int num)
 {
     _isInit = true;
+    for (auto iter = _purValue.begin(); iter != _purValue.end(); ++iter) {
+        if (*iter == num) {
+            _purValue.erase(iter);
+            break;
+        }
+    }
     for (int i = 0; i < _noPurValue.size(); i++) {
         if (_noPurValue[i] == num) {
             return false;
@@ -126,8 +132,23 @@ bool Grid::removePurValue(int value)
 
 void Grid::setPurValues(std::vector<int> values)
 {
+    if (_purValue.size() > 0) {
+        printf("");
+    }
     _purValue.clear();
     _purValue = values;
+
+    for (int i = 1; i <= 9; ++i) {
+        bool hasSame = false;
+        for (auto value : values) {
+            if (i == value) {
+                hasSame = true;
+            }
+        }
+        if (!hasSame) {
+            addUnPurValue(i);
+        }
+    }
 }
 
 void Grid::clearValues()
@@ -159,21 +180,26 @@ bool Grid::showText()
         removePurText();
     } else {
         if (_isInit) {
-            if (_purValue.size() > 1 || _noPurValue.size() < 8){
+            std::vector<int> purValue = getPurValue();
+            if (_noPurValue.size() == 8 || _purValue.size() == 1){
+                std::vector<Text*> textVec = getPurText();
+                if (_noPurValue.size() == 8) {
+                    int tolValue = 0;
+                    for (int i = 0; i < _noPurValue.size(); i++) {
+                        tolValue += _noPurValue[i];
+                    }
+                    _value = _gatherValue - tolValue;
+                } else {
+                    _value = _purValue[0];
+                }
+                showText();
+                return true;
+            } else if (_noPurValue.size() > 1 || _noPurValue.size() < 8){
                 std::vector<Text*> textVec = getPurText();
                 for (int i = 0; i < _noPurValue.size(); i++) {
                     int index = _noPurValue[i] - 1;
                     textVec[index]->setVisible(false);
                 }
-            } else if (_noPurValue.size() == 8){
-                std::vector<Text*> textVec = getPurText();
-                int tolValue = 0;
-                for (int i = 0; i < _noPurValue.size(); i++) {
-                    tolValue += _noPurValue[i];
-                }
-                _value = _gatherValue - tolValue;
-                showText();
-                return true;
             }
         }
     }

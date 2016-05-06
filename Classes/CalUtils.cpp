@@ -144,7 +144,8 @@ void CalUtils::calculate()
 
         calCellExclude();
 
-        // calCellTwoOrThree();
+//        highlyCalCellExclude();
+        calCellTwoOrThree();
         // _isFirst = false;
 
     } else {
@@ -287,11 +288,6 @@ bool CalUtils::scissorPurValue()
             std::vector<Grid_Vec> gridVecVec = iter->second;
             std::map<long, std::map<long, std::vector<Grid_Vec>>> existNumMap;
             
-            bool isTheSamePur = false;
-            std::vector<int> useVec;
-            std::vector<int> useRowIndexVec;
-            int samePurNum = 0;
-            bool hasSame = false;
             
             for (auto gridVVIter = gridVecVec.begin(); gridVVIter < gridVecVec.end(); ++gridVVIter)
             {
@@ -305,58 +301,71 @@ bool CalUtils::scissorPurValue()
                     }
                     auto sameIter = existNumMap.find(size);
 
-                    if (sameIter != existNumMap.end())
-                    {
-                        std::map<long, std::vector<Grid_Vec>> vecMap = sameIter->second;
-                        if (vecMap.find(indexSum) != vecMap.end()) {
-                            for (auto vecMapIter = vecMap[indexSum].begin(); vecMapIter != vecMap[indexSum].end(); ++vecMapIter) {
-                                for (auto vecGridVecIter = vecMapIter->begin(), gridIter = gridVVIter->begin(); vecGridVecIter != vecMapIter->end(); ++vecGridVecIter, ++gridIter){
-                                    Grid* oldGrid = *vecGridVecIter;
-                                    Grid* newGrid = *gridIter;
-                                    if (oldGrid->getRowIndex() == newGrid->getRowIndex()) {
-                                        isTheSamePur = true;
-                                        if (!hasSame) {
-                                            useVec.push_back(oldGrid->getIndex());
-                                            useRowIndexVec.push_back(oldGrid->getRowIndex());
-                                        }
-                                    } else {
-                                        isTheSamePur = false;
+                    if (sameIter == existNumMap.end()) {
+                        existNumMap[size] = {};
+                        sameIter = existNumMap.find(size);
+                    }
+                    std::map<long, std::vector<Grid_Vec>> vecMap = sameIter->second;
+                    if (vecMap.find(indexSum) == vecMap.end()) {
+                        existNumMap[size][indexSum] = {};
+                    }
+                    
+                    existNumMap[size][indexSum].push_back(*gridVVIter);
+                }
+            }
+            for (auto existNumMapIter = existNumMap.begin(); existNumMapIter != existNumMap.end(); ++existNumMapIter)
+            {
+                long num = existNumMapIter->first;
+                for (auto existNumMapGridIter = existNumMapIter->second.begin(); existNumMapGridIter != existNumMapIter->second.end(); ++existNumMapGridIter){
+                    bool hasSamePurVal = true;
+                    if (existNumMapGridIter->second.size() == num) {
+                        //
+                        std::map<int, std::vector<int>> useVecMap;
+                        std::vector<int> indexVec;
+                        std::vector<int> rowIndexVec;
+                        for (auto gridVecIter = existNumMapGridIter->second.begin(); gridVecIter != existNumMapGridIter->second.end(); ++gridVecIter) {
+                            Grid_Vec gridVec = *gridVecIter;
+                            bool needAddIndex = indexVec.size() == 0;
+                            if (!hasSamePurVal)
+                            {
+                                break;
+                            }
+                            std::vector<int>::iterator rowIndexIter;
+                            for (auto gridIter = gridVecIter->begin(); gridIter != gridVecIter->end(); ++gridIter) {
+                                Grid* tempGrid = *gridIter;
+                                int index = tempGrid->getIndex();
+                                int gridLineIndex = _indexVec[index][1];
+                                if (gridIter == gridVecIter->begin())
+                                {
+                                    rowIndexIter = rowIndexVec.begin();
+                                }
+                                if (needAddIndex) {
+                                    indexVec.push_back(gridLineIndex);
+                                    rowIndexVec.push_back(tempGrid->getRowIndex());
+                                    useVecMap[gridLineIndex] = {};
+                                } else {
+                                    if (tempGrid->getRowIndex() == *rowIndexIter)
+                                    {
+                                        ++rowIndexIter;
+                                    } else{
+                                        hasSamePurVal = false;
                                         break;
                                     }
                                 }
-                                if (isTheSamePur) {
-                                    if (!hasSame) {
-                                        hasSame = true;
-                                    }
-                                    samePurNum++;
-//                                    useVecVec.push_back(useVec);
-//                                    usrVecMap[lineIndex] = useVec;
-                                }
+                                useVecMap[gridLineIndex].push_back(index);
                             }
+                            
+                            // useVec.push_back((*gridVecIter->begin())->getIndex());
                         }
-                    }
-                    if (isTheSamePur) {
-                        if (samePurNum == size) {
-                            for (auto useGridIndexIter = useVec.begin(); useGridIndexIter != useVec.end(); ++useGridIndexIter) {
-                                int useGridIndex = *useGridIndexIter;
-                                removeUnuseValue(_indexVec[useGridIndex][2], useRowIndexVec, iter->first);
-                            }
+                        if (!hasSamePurVal)
+                        {
+                            printf("hasSamePurVal");
+                            continue;
                         }
-                    }
+                        for (auto indexIter = indexVec.begin(); indexIter != indexVec.end(); ++indexIter){
+                            removeUnuseValue(*indexIter, useVecMap[*indexIter], iter->first);
+                        }
 
-                    if (!isTheSamePur)
-                    {
-//                        std::map<long, Grid_Vec> gridVecMap = {indexSum, *gridVVIter};
-                        if (sameIter == existNumMap.end()) {
-                            existNumMap[size] = {};
-                            sameIter = existNumMap.find(size);
-                        }
-                        std::map<long, std::vector<Grid_Vec>> vecMap = sameIter->second;
-                        if (vecMap.find(indexSum) == vecMap.end()) {
-                            existNumMap[size][indexSum] = {};
-                        }
-                        
-                        existNumMap[size][indexSum].push_back(*gridVVIter);
                     }
                 }
             }
@@ -394,6 +403,9 @@ bool CalUtils::removeUnuseValue(int indexType, std::vector<int> useVec, int remo
                 for (auto iter = indexList.begin(); iter != indexList.end(); ++iter) {
                     removeGridCellSet.insert(*iter);
                 }
+                if (grid->showText()) {
+                    addSureValue(grid);
+                }
             }
         }
     }
@@ -413,10 +425,12 @@ bool CalUtils::calCellExclude()
 
     for (auto areaIndex = 0; areaIndex < _areaVec.size(); ++areaIndex) {
         Grid_Map gridMap = getPurValueMap(areaIndex);
+        std::map<long, Grid_Map> numGridMap;
         for (auto iter = gridMap.begin(); iter != gridMap.end(); ++iter)
         {
             Grid_Vec gridVec = iter->second;
-            if (gridVec.size() == 1)
+            long num = gridVec.size();
+            if (num == 1)
             {
                 gridVec[0]->setValue(iter->first);
                 addSureValue(gridVec[0]);
@@ -456,7 +470,7 @@ bool CalUtils::calCellExcludeByIndexList(std::vector<int> indexList)
     return hasCal;
 
 }
-
+// 不是很对 清掉
 bool CalUtils::calCellTwoOrThree()
 {
     bool hasCal = false;
@@ -507,7 +521,18 @@ bool CalUtils::calCellTwoOrThree()
                     //std::sort(iter->second.begin(), iter->second.end(), cmp);
                 }*/
             }
-
+            /*long gridMapVecNum = gridMap.size();
+            // 空位
+            long gridEmptyNum = 9 - vecSize;
+            if (gridEmptyNum < gridMapVecNum) {
+//                statements
+            }*/
+            // 空位
+            long gridEmptyNum = 9 - vecSize;
+            if (gridEmptyNum <= 2) {
+                continue;
+            }
+            
             std::vector<GridPurCheckStruct> GridPurCheckStructVec;
             for (auto mapIter = gridMap.begin(); mapIter != gridMap.end(); ++mapIter) {
                 
@@ -531,8 +556,8 @@ bool CalUtils::calCellTwoOrThree()
                                 for (auto iter = purValueVec.begin(); iter != purValueVec.end(); ++iter){
                                     if (*iter != grid) {
                                         purStruct.gridSet.insert(grid);
-                                        std::set<int> purSearchValueVec = {value, purValue};
-                                        if (calCellTwoOrThreeFromPurMap(i, gridMap, purStruct, *iter, purSearchValueVec)) {
+                                        std::set<int> purSearchValueSet = {value, purValue};
+                                        if (calCellTwoOrThreeFromPurMap(i, gridMap, purStruct, *iter, purSearchValueSet)) {
                                             calSuc = true;
                                         }
                                     }
@@ -560,17 +585,20 @@ bool CalUtils::calCellTwoOrThree()
     return hasCal;
 }
 
-bool CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map& gridMap, GridPurCheckStruct& purStruct, Grid* grid, std::set<int>& searchPurValueSet)
+bool CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map& gridMap, GridPurCheckStruct& purStruct, Grid* grid, std::set<int>& tempValueSet)
 {
     GridPurCheckStruct newPurStruct;
     // GridPurCheckStructVec.insert(newPurStruct);
     newPurStruct.gridSet = purStruct.gridSet;
     newPurStruct.gridValueSet = purStruct.gridValueSet;
+    std::set<int> searchPurValueSet = tempValueSet;
 
+    // 要找下一个要搜索的数字
     std::vector<int> purValue = grid->getPurValue();
     bool existPurValue = false;
-    int lastPurValue = *(-- --searchPurValueSet.end());
+//    int lastPurValue = *(--searchPurValueSet.end());
     int nextCheckValue = 0;
+
     for (int i = 0; i < purValue.size(); ++i) {
         int value = purValue[i];
         if (!existPurValue) {   
@@ -578,40 +606,42 @@ bool CalUtils::calCellTwoOrThreeFromPurMap(int index, Grid_Map& gridMap, GridPur
                 existPurValue = true;
                 nextCheckValue = value;
                 //break;
-            } else {
+            } /*else {
                 if (lastPurValue != value) {
                     existPurValue = true;
                     nextCheckValue = value;
                 }
-            }
+            }*/
         }
         newPurStruct.gridValueSet.insert(value);
     }
-    
-    /*// 这时候已经不可能了
-    if (newPurStruct.gridValueSet.size() >= gridMap.size()) {
-        return false;
-    }*/
+    if (!existPurValue) {
+        newPurStruct.gridSet.insert(grid);
+        if (newPurStruct.gridSet.size() == newPurStruct.gridValueSet.size()) {
+            clearWithGridVec(index, newPurStruct);
+            return true;
+        }
+    }
     
     if (nextCheckValue != 0) {
         Grid_Vec purValueVec = gridMap[nextCheckValue];
         for (auto iter = purValueVec.begin(); iter != purValueVec.end(); ++iter) {
             if (*iter != grid) {
-                if (*iter == *newPurStruct.gridSet.begin()) {
+                /*if (*iter == *newPurStruct.gridSet.begin()) {
                     if (newPurStruct.gridSet.size() == newPurStruct.gridValueSet.size()) {
                         clearWithGridVec(index, newPurStruct);
                         return true;
                     }
-                    return false;
-                } else if (newPurStruct.gridSet.find(*iter) != newPurStruct.gridSet.end()) {
-                    return false;
+//                    return false;
+                } else */
+                if (newPurStruct.gridSet.find(*iter) == newPurStruct.gridSet.end()) {
+                    newPurStruct.gridSet.insert(grid);
+                    searchPurValueSet.insert(nextCheckValue);
                     
+                    if (calCellTwoOrThreeFromPurMap(index, gridMap, newPurStruct, *iter, searchPurValueSet)) {
+                        return true;
+                    };
                 }
-                newPurStruct.gridSet.insert(grid);
-                searchPurValueSet.insert(nextCheckValue);
-                if (calCellTwoOrThreeFromPurMap(index, gridMap, newPurStruct, *iter, searchPurValueSet)) {
-                    return true;
-                };
             }
         }
     }
@@ -644,5 +674,101 @@ bool CalUtils::clearWithGridVec(int index, GridPurCheckStruct purStruct)
         }
     }
     return false;
+}
+
+bool CalUtils::highlyCalCellExcludeFromPurMap(int index, Grid_Map& gridMap, GridPurCheckStruct& purStruct, Grid* grid, std::set<int>& searchPurValueSet)
+{
+    bool hasCal = false;
+    return hasCal;
+}
+// 进一步计算
+bool CalUtils::highlyCalCellExclude()
+{
+    bool hasCal = false;
+    for (auto areaIndex = 0; areaIndex < _areaVec.size(); ++areaIndex) {
+        //gridMap [数字] = {grid, grid...}
+        Grid_Map gridMap = getPurValueMap(areaIndex);
+        //numGridMap [数字出现次数] = {[数字] = {grid, grid...}}
+        std::map<long, Grid_Map> numGridMap;
+        for (auto iter = gridMap.begin(); iter != gridMap.end(); ++iter) {
+            Grid_Vec gridVec = iter->second;
+            long num = gridVec.size();
+            if (num == 1) {
+//                gridVec[0]->setValue(iter->first);
+//                addSureValue(gridVec[0]);
+//                hasCal = true;
+            } else {
+                auto numIter = numGridMap.find(num);
+                if (numIter == numGridMap.end()){
+                    numGridMap[num] = {};
+                    numIter = numGridMap.find(num);
+                }
+                numIter->second.insert(*iter);;
+            }           
+        }
+        if (numGridMap.size() > 0) {
+            for (auto numMapIter : numGridMap) {
+                // 有这个数字的格子的数目
+                long numMapNum = numMapIter.second.size();
+                if (numMapNum > 1) {
+                    // 出现的次数
+                    long valueNum = numMapIter.first;
+                    if (valueNum <= numMapNum) {
+                        Grid_Vec gridVec;
+                        Grid_Vec::iterator gridVecIter;
+                        std::vector<int> valueVec;
+                        for (auto valueGridIterVec : numMapIter.second) {
+                            bool theSameGrid = true;
+                            if (valueGridIterVec == *numMapIter.second.begin()) {
+                                if (gridVec.size() == 0) {
+                                    gridVec = valueGridIterVec.second;
+                                }
+                                valueVec.push_back(valueGridIterVec.first);
+                                continue;
+                            }
+                            for (auto valueGridIter: valueGridIterVec.second) {
+                                if (valueGridIter == *valueGridIterVec.second.begin()) {
+                                    gridVecIter = gridVec.begin();
+                                }
+                                if (*gridVecIter != valueGridIter) {
+                                    theSameGrid = false;
+                                    break;
+                                }
+                                ++gridVecIter;
+                            }
+                            if (theSameGrid) {
+                                valueVec.push_back(valueGridIterVec.first);
+                                if (valueVec.size() == valueNum) {
+                                    bool checkTiled = areaIndex > 0 && areaIndex < 18;
+                                    std::vector<int>useIndexVec;
+                                    int lastTiledValue = 0;
+                                    for (auto valueIter : gridVec) {
+                                        valueIter->setPurValues(valueVec);
+                                        valueIter->showText();
+                                        if (checkTiled) {
+                                            if (valueIter == *gridVec.begin()) {
+                                                lastTiledValue = _indexVec[valueIter->getIndex()][2];
+                                            } else {
+                                                if (lastTiledValue != _indexVec[valueIter->getIndex()][2]) {
+                                                    checkTiled = false;
+                                                }
+                                            }
+                                            useIndexVec.push_back(valueIter->getIndex());
+                                        }
+                                    }
+                                    if (checkTiled) {
+                                        for (auto value : valueVec) {
+                                            removeUnuseValue(lastTiledValue, useIndexVec, value);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }    
+    return hasCal;
 }
     

@@ -49,6 +49,9 @@ public:
     bool calCellExclude();
     bool calCellExcludeByIndexList(std::vector<int> indexList);
     bool calCellTwoOrThree();
+    bool highlyCalCellExclude();
+    bool highlyCalCellExcludeFromPurMap(int index, Grid_Map& gridMap, GridPurCheckStruct& purStruct, Grid* grid, std::set<int>& searchPurValueSet);
+    
     Grid_Map getPurValueMap(int areaIndex);
 
     bool calCellTwoOrThreeFromPurMap(int index, Grid_Map& gridMap, GridPurCheckStruct& purStruct, Grid* grid, std::set<int>& searchPurValueSet);

@@ -26,6 +26,7 @@ public:
     void createGrids();
     std::vector<int> getGridsData();
     void calculate(Ref *pSender, Widget::TouchEventType eventType);
+    void checkAllValue(Ref *pSender, Widget::TouchEventType eventType);
     
     CREATE_FUNC(GameScene);
     
